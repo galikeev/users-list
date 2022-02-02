@@ -1,0 +1,26 @@
+.user {
+    width: 420px;
+    background: #F3F3F3;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    &__descr {
+        color: #A3A3A3;
+        span {
+            padding-left: 7px;
+            color: #000 
+        }
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__btn {
+        cursor: pointer;
+        border: none;
+        background: none;
+        color: #4B51EF;
+    }
+}
