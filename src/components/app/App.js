@@ -1,8 +1,9 @@
+import UserList from "../userList/UserList";
 
 const App = () => {
 	return (
-		<div className="App">
-			
+		<div className="app">
+			<UserList/>
 		</div>
 	);
 }
