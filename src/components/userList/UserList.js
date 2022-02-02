@@ -1,8 +1,5 @@
-import { useState, useEffect, useMemo } from "react";
-
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
-import useUserService from '../../services/UsersService';
 import UserItem from "../userItem/UserItem";
 
 import './userList.scss';
@@ -23,26 +20,7 @@ const setContent = (process, Component) => {
     }
 }
 
-const UserList = () => {
-    
-    const [usersList, setUsersList] = useState([]);
-
-    const {getUsers, process, setProcess} = useUserService();
-
-    useEffect(() => {
-        onRequest()
-        // eslint-disable-next-line
-    }, [])
-
-    const onRequest = () => {
-        getUsers()
-            .then(onUsersListLoaded)
-            .then(() => setProcess('confirmed'))
-    }
-
-    const onUsersListLoaded = (usersList) => {
-        setUsersList(() => [...usersList])
-    }
+const UserList = (props) => {
 
     const renderItems = (arr) => {
         const elems = arr.map(elem => {
@@ -57,10 +35,7 @@ const UserList = () => {
         return elems;
     }
 
-    const elements = useMemo(() => {
-        return setContent(process, () => renderItems(usersList));
-        // eslint-disable-next-line
-    }, [process])
+    const elements = setContent(props.process, () => renderItems(props.usersList));
 
     return (
         <div className="list">
