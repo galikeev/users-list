@@ -27,6 +27,8 @@ const UserList = (props) => {
             const {id, ...elemProps} = elem;
             return (
                 <UserItem
+                    onUserSelected={() => props.onUserSelected(id)}
+                    onToggleDescrUser={props.onToggleDescrUser}
                     key={id}
                     {...elemProps}/>
             )

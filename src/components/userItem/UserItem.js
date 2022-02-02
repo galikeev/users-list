@@ -8,7 +8,7 @@ const UserItem = (props) => {
             <div className='user__descr fz_11'>город: <span>{props.address.city}</span></div>
             <div className='user__wrapper'>
                 <div className='user__descr fz_11'>компания: <span>{props.company.name}</span></div>
-                <button className='user__btn fz_12'>Подробнее</button>
+                <button className='user__btn fz_12' onClick={() => {props.onUserSelected(); props.onToggleDescrUser()}}>Подробнее</button>
             </div>
         </div>
     )

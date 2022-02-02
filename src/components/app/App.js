@@ -3,10 +3,13 @@ import { useState, useEffect } from "react";
 import useUserService from '../../services/UsersService';
 import SortBlock from "../sortBlock/SortBlock";
 import UserList from "../userList/UserList";
+import UserProfile from "../userProfile/UserProfile";
 
 const App = () => {
 
 	const [usersList, setUsersList] = useState([]);
+	const [userSelected, setUserSelected] = useState(0);
+	const [isShow, setIsShow] = useState(false);
 
     const {getUsers, process, setProcess} = useUserService();
 
@@ -39,10 +42,23 @@ const App = () => {
         setUsersList([...result])
 	}
 
+	const onUserSelected = (id) => {
+		setUserSelected(id);
+	}
+
+	const onToggleDescrUser = () => {
+		setIsShow(isShow => !isShow)
+	}
+
 	return (
 		<div className="app">
 			<SortBlock onSortCity={onSortCity} onSortCompany={onSortCompany}/>
-			<UserList usersList={usersList} process={process}/>
+			{!isShow && <UserList 
+							usersList={usersList} 
+							process={process}
+							onUserSelected={onUserSelected}
+							onToggleDescrUser={onToggleDescrUser}/>}
+			{isShow && <UserProfile onToggleDescrUser={onToggleDescrUser} userId={userSelected} usersList={usersList}/>}
 		</div>
 	);
 }
