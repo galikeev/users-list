@@ -47,6 +47,7 @@ const UserProfile = (props) => {
 
     const colorInput = read ? {'opacity': '0.3'} : {'opacity': '1'};
     const colorButton = read ? {'background': '#AFAFAF'} : {'background' : '#52CF4F'};
+    const disabledButton = read ? true : false
 
     return (
         <div className='form'>
@@ -150,7 +151,14 @@ const UserProfile = (props) => {
                 </div>
                 <div className='form__block'>
                     <button className='form__change' onClick={props.onToggleDescrUser}>Назад</button>
-                    <button type="submit" className='form__btn' style={colorButton}>Отправить</button>
+                    <button 
+                        type="submit" 
+                        className='form__btn' 
+                        style={colorButton} 
+                        disabled={disabledButton}
+                    >
+                        Отправить
+                    </button>
                 </div>
             </form>
         </div>
