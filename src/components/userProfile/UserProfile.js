@@ -33,7 +33,7 @@ const UserProfile = (props) => {
     })
 
     const onToggleRead = () => {
-        setRead(read => !read)
+        setRead(false)
     }
 
     const onChangeInput = (e) => {
