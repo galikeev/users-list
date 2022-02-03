@@ -7,7 +7,6 @@ const useUsersService = () => {
 
     const getUsers = async () => {
         const res = await request(`${_baseApi}`);
-        console.log(res);
         return res;
     }
 

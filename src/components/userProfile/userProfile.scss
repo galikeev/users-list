@@ -28,6 +28,10 @@
         border: 1px solid #D8D8D8;
         border-radius: 5px;
         width: 211px;
+        &:focus {
+            outline: none;
+            border: 1px solid #4378FF;
+        }
     }
     &__area {
         resize:none;
@@ -42,4 +46,7 @@
         color: #fff;
         border-radius: 5px;
     }
+}
+.error {
+    border-color: red;
 }
