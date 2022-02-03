@@ -2,6 +2,9 @@
     width: 152px;
     background: #BDBDBD;
     padding: 35px 20px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
     &__btn {
         cursor: pointer;
         margin-top: 10px;
